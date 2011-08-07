@@ -1,0 +1,44 @@
+---------------
+Referred Paper
+---------------
+Monitoring SIP traffic using support vector machines(Mohamed Nassar, Radu State, and Olivier Festor).
+
+-------------
+TCPDUMP
+-------------
+Input = tcpdump data placed in dumpfiles. eg:dumpfiles/try1
+
+Perl interface for LIBPCAP library used :CPAN
+call-flow-features.pl
+
+Output : 38 features stored in temps.txt
+
+command : perl call-flow-features.pl>temps.txt
+
+---------
+Dataset
+---------
+Replace tcpdump input with the dataset files (eg: asterisk)
+
+---------------------------------
+Converting temps.txt to SVM input
+----------------------------------
+Use C program convert.c to convert temps.txt features to SVM input.
+Input: temps.txt
+Output: svm.txt
+Command:gcc convert.c
+
+-----
+SVM
+-----
+Input stored in svm_input folder for each of the dataset files.
+Combined training & predict files stored in files named "train" and "predict"
+
+LibSVM 3.1 is used.
+Stored in libsvm-3.1 folder. (model file for training set also stored there)
+
+Commands :
+./svm-train -c 1000 /home/sarang/libpcap/train
+./svm-predict /home/sarang/libpcap/predict ./train.model /home/sarang/libpcap/out
+
+Output file stored in file named "out".

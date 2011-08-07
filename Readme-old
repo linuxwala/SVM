@@ -1,0 +1,14 @@
+Referred Paper
+Monitoring SIP traffic using support vector machines.
+
+Input
+The input to the program is a wireshark dump file named try1.
+The file has to be placed in the 'dumpfiles' folder and renamed 'try1', or the name has to be changed, in the code 'call-flow-features.pl' in variable $dumpfile.
+ 
+
+Command
+perl 
+
+Output
+vectors.pl
+Every line has feature vectors for packets arraived within a particular time slice.
